@@ -93,7 +93,9 @@ class WeeklyReportDocxWriter
 
         $titleIndexes = [];
         foreach ($bodyNodes as $index => $node) {
-            if ($this->nodeText($node) === 'WEEKLY REPORT RSCHB') {
+            $text = $this->nodeText($node);
+
+            if (in_array($text, ['WEEKLY REPORT RSCHB', 'Weekly Report RSCHB'], true)) {
                 $titleIndexes[] = $index;
             }
         }
