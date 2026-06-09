@@ -14,6 +14,14 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ReportController extends Controller
 {
+    protected const PRIORITY_USERS = [
+        'Andi Ardianyah Amir',
+        'Rizki Hi. Ibrahim',
+        'Farhan',
+        'Zulfikri Ramadhan Irfan',
+        'Ika Zuliana Safitri',
+    ];
+
     public function index(Request $request, WeeklyReportSummaryService $summaryService): View
     {
         $range = $this->resolvedRange($request);
@@ -262,7 +270,7 @@ class ReportController extends Controller
                         ];
                     })->all(),
                     'issues' => $group
-                        ->filter(fn (DailyActivity $activity) => $activity->status === 'kendala')
+                        ->filter(fn(DailyActivity $activity) => $activity->status === 'kendala')
                         ->values()
                         ->map(function (DailyActivity $activity, int $index) use ($userName) {
                             return [
@@ -276,7 +284,27 @@ class ReportController extends Controller
                         ->all(),
                 ];
             })
-            ->sortByDesc(fn (array $section) => $section['summary']['total_tasks'])
+            // ->sortByDesc(fn (array $section) => $section['summary']['total_tasks'])
+            ->sort(function (array $a, array $b) {
+                $priorityA = array_search($a['user'], self::PRIORITY_USERS, true);
+                $priorityB = array_search($b['user'], self::PRIORITY_USERS, true);
+
+                $isPriorityA = $priorityA !== false;
+                $isPriorityB = $priorityB !== false;
+
+                // Salah satu priority, salah satu tidak
+                if ($isPriorityA !== $isPriorityB) {
+                    return $isPriorityA ? -1 : 1;
+                }
+
+                // Keduanya priority → urut by index
+                if ($isPriorityA && $isPriorityB) {
+                    return $priorityA <=> $priorityB;
+                }
+
+                // Keduanya non-priority → urut by total_tasks desc
+                return $b['summary']['total_tasks'] <=> $a['summary']['total_tasks'];
+            })
             ->values()
             ->all();
     }

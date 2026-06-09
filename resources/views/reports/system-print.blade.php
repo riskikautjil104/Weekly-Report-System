@@ -9,7 +9,7 @@
             --ink: #111827;
             --muted: #6b7280;
             --blue: #548dd4;
-            --blue-soft: #c6d9f1;
+            --blue-soft: #a5ceff;
             --orange: #fabf8f;
             --paper: #ffffff;
             --page: #f3f4f6;
@@ -82,7 +82,7 @@
             margin-bottom: 0;
         }
         .header-logo img {
-            width: 80px;
+            width: 75px;
             height: auto;
             display: block;
         }
@@ -92,7 +92,7 @@
         .company-name {
             font-family: "Times New Roman", Times, serif;
             font-size: 26px;
-            font-weight: bold;
+            /* font-weight: 700; */
             line-height: 1.1;
             margin: 0;
         }
@@ -107,7 +107,7 @@
         }
         .report-label-top {
             margin: 0;
-            color: #8496b0;
+            color: #9aa4b2;
             font-size: 18px;
             font-weight: 700;
             letter-spacing: 0.02em;
@@ -124,8 +124,8 @@
         /* ── Report title centered ── */
         .report-title-center {
             text-align: center;
-            font-size: 20px;
-            font-weight: 900;
+            font-size: 25px;
+            font-weight: bold;
             letter-spacing: 0.04em;
             margin: 18px 0 14px;
             text-transform: uppercase;
@@ -142,7 +142,7 @@
             padding: 7px 10px;
             vertical-align: top;
             word-break: break-word;
-            font-size: 14px;
+            font-size: 18px;
         }
         .info-table .label {
             width: 30%;
@@ -155,8 +155,8 @@
         .summary-heading {
             margin: 18px 0 10px;
             font-size: 24px;
-            font-weight: 900;
-            font-style: italic;
+            font-weight: bold;
+            /* font-style: italic; */
         }
 
         /* ── Summary table ── */
@@ -164,6 +164,7 @@
             width: 100%;
             border-collapse: collapse;
             table-layout: fixed;
+            font-weight: bold;
         }
         .summary-table td {
             border: 1px solid #d1d5db;
@@ -176,7 +177,7 @@
         .summary-table .metric {
             background: var(--blue-soft);
             font-size: 16px;
-            font-weight: 700;
+            /* font-weight: 700; */
             padding: 8px 10px;
         }
 
@@ -184,8 +185,8 @@
         .section-title {
             margin: 16px 0 10px;
             font-size: 22px;
-            font-weight: 900;
-            font-style: italic;
+            font-weight: bold;
+            /* font-style: italic; */
         }
 
         /* ── Activity table ── */
@@ -197,7 +198,7 @@
         .activity-table th {
             border: 1px solid #d1d5db;
             padding: 8px 10px;
-            font-size: 14px;
+            font-size: 17px;
             text-align: center;
             font-weight: 700;
             text-decoration: underline;
@@ -232,7 +233,7 @@
         .issue-table th {
             border: 1px solid #d1d5db;
             padding: 8px 10px;
-            font-size: 14px;
+            font-size: 17px;
             text-align: center;
             font-weight: 700;
             background: var(--orange);
@@ -355,7 +356,7 @@
                 </table>
 
                 {{-- ── Aktivitas / Output ── --}}
-                <div class="section-title">Aktivitas / Output</div>
+                <div class="section-title"><br></div>
                 <table class="activity-table">
                     <thead>
                         <tr>
