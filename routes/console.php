@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Services\WeeklyReportArchiveService;
 use App\Services\WahaClient;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
@@ -73,9 +74,17 @@ Artisan::command('weekly-report:weekly-reminder {--dry-run : Show recipients wit
     $this->info("Weekly reminder selesai. Terkirim: {$sent}. Gagal: {$failed}. Target: {$users->count()}.");
 })->purpose('Send weekly reminders to finalize reports.');
 
+
+Artisan::command('weekly-report:archive', function (WeeklyReportArchiveService $archive): void {
+    $saved = $archive->archivePastWeeks();
+
+    $this->info("Archive sync selesai. Disimpan: {$saved} weekly report.");
+})->purpose('Archive weekly reports older than the current week.');
+
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
 Schedule::command('weekly-report:daily-reminder')->dailyAt('16:00');
 Schedule::command('weekly-report:weekly-reminder')->fridays()->at('16:00');
+Schedule::command('weekly-report:archive')->dailyAt('23:55');

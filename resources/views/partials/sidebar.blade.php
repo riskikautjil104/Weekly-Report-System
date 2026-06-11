@@ -2,7 +2,8 @@
     <div class="flex h-full flex-col px-4 py-6">
         <div class="mb-6 rounded-2xl border border-outline-variant bg-surface-container-lowest p-4 shadow-sm">
             <div class="flex items-center gap-3">
-                <img src="{{ asset('logo.png') }}" alt="Weekly Report Logo" class="h-12 w-12 rounded-xl object-contain bg-white p-1">
+                 <img src="{{ asset('assets/img/logosite.png') }}" alt="Logo" class="h-14 w-14 rounded-xl object-contain bg-white p-1">
+                {{-- <img src="{{ asset('logo.png') }}" alt="Weekly Report Logo" class="h-12 w-12 rounded-xl object-contain bg-white p-1"> --}}
                 <div>
                     <p class="text-sm font-semibold tracking-[0.14em] text-primary uppercase">WeeklyReport</p>
                     <p class="text-xs text-on-surface-variant">Corporate Portal</p>
@@ -21,7 +22,9 @@
                             ['route' => 'dashboard', 'label' => 'Dashboard', 'icon' => 'dashboard'],
                             ['route' => 'activities.create', 'label' => 'Activity Input', 'icon' => 'edit_note'],
                             ['route' => 'reports.index', 'label' => 'My Reports', 'icon' => 'description'],
+                            ['route' => 'archives.index', 'label' => 'Arsip', 'icon' => 'inventory_2'],
                             ['route' => 'sheets.show', 'label' => 'Sheets', 'icon' => 'table_view'],
+                            ['route' => 'requirements.index', 'label' => 'Requirement Gathering', 'icon' => 'fact_check'],
                         ],
                     ],
                 ];
@@ -37,6 +40,7 @@
                             ['route' => 'admin.users.index', 'label' => 'User Management', 'icon' => 'group'],
                             ['route' => 'reports.system', 'label' => 'System Reports', 'icon' => 'analytics'],
                             ['route' => 'admin.sheets.index', 'label' => 'Sheet Manager', 'icon' => 'dataset'],
+                            ['route' => 'archives.index', 'label' => 'Archive', 'icon' => 'inventory_2'],
                         ],
                     ];
                 }

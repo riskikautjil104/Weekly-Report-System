@@ -15,12 +15,23 @@ class WeeklyReport extends Model
         'week_start',
         'week_end',
         'status',
+        'summary_json',
+        'activities_json',
+        'issues_json',
+        'archived_at',
     ];
 
-    protected $casts = [
-        'week_start' => 'date',
-        'week_end' => 'date',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'week_start' => 'date',
+            'week_end' => 'date',
+            'summary_json' => 'array',
+            'activities_json' => 'array',
+            'issues_json' => 'array',
+            'archived_at' => 'datetime',
+        ];
+    }
 
     public function user(): BelongsTo
     {

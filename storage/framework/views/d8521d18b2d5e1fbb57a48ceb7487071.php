@@ -7,6 +7,7 @@
             ['route' => 'dashboard.admin', 'label' => 'Admin', 'icon' => 'dashboard'],
             ['route' => 'admin.users.index', 'label' => 'Users', 'icon' => 'group'],
             ['route' => 'reports.system', 'label' => 'Reports', 'icon' => 'analytics'],
+            ['route' => 'archives.index', 'label' => 'Archive', 'icon' => 'inventory_2'],
             ['route' => 'sheets.show', 'label' => 'Sheets', 'icon' => 'table_view'],
             ['route' => 'profile.edit', 'label' => 'Profile', 'icon' => 'settings'],
         ]
@@ -14,6 +15,7 @@
             ['route' => 'dashboard.user', 'label' => 'Home', 'icon' => 'dashboard'],
             ['route' => 'activities.create', 'label' => 'Input', 'icon' => 'edit_note'],
             ['route' => 'reports.index', 'label' => 'Reports', 'icon' => 'description'],
+            ['route' => 'archives.index', 'label' => 'Archive', 'icon' => 'inventory_2'],
             ['route' => 'sheets.show', 'label' => 'Sheets', 'icon' => 'table_view'],
             ['route' => 'profile.edit', 'label' => 'Profile', 'icon' => 'settings'],
         ];

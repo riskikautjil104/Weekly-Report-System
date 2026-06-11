@@ -877,8 +877,8 @@
     </div>
     <div class="showcase-img-wrap reveal">
       <div class="showcase-img-glow"></div>
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9JRvBe-SRgwVALwYoR_CMMAGZqn0tRfl_5lCPM95WsRcuuCBfPTbU29A_8JOVyhP7gAQYBBd11kbKlaCFq40zxdtlvViR-9u8JoyRjLoMpfunS4oRjkVR74tSl2W1XPcid5tzbgt1TFkB76YK0xJZzlf0K1JYMQKa1_ciF1gFHwehuA0Kq4U1Pt23qzzg31cVZiZKlbMl_zLlnmoyuVLixSQ9RbqnI-D4q36bfklV3d-jg7TUQXH-97sm5XyzxY5eAdFZQVJZCZYx" alt="Dashboard WeeklyReport"/>
-
+      
+ <img src="<?php echo e(asset('assets/img/logosite.png')); ?>" alt="Logo">
       <!-- floating badges -->
       <div class="float-badge badge-1">
         <div class="badge-icon badge-icon-green">

@@ -774,8 +774,8 @@
 
             <header class="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
                 <a href="{{ url('/') }}" class="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.08em] text-[#e2e2e4]">
-                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#b8c3ff] shadow-lg shadow-black/20">
-                        WR
+                    <span class="inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#b8c3ff] shadow-lg shadow-black/20">
+                         <img src="{{ asset('assets/img/logosite.png') }}" alt="Logo">
                     </span>
                     <span class="flex flex-col leading-tight">
                         <span>WeeklyReport</span>

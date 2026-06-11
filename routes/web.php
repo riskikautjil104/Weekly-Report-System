@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\MonthlySheetController;
 use App\Http\Controllers\Admin\UserManagementController;
@@ -9,6 +10,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SheetController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RequirementCommentController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,10 +27,28 @@ Route::get('/dashboard', function () {
 
     return redirect()->route('dashboard.user');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::post('requirements/{requirement}/comments', [RequirementCommentController::class, 'store'])
+    ->name('requirements.comments.store');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/user', [DashboardController::class, 'index'])
         ->name('dashboard.user');
+
+    // Requirements Gathering
+    Route::resource('requirements', \App\Http\Controllers\RequirementController::class)->only([
+        'index',
+        'create',
+        'store',
+        'show',
+        'edit',
+        'update'
+    ]);
+
+    Route::get('/requirements/{requirement}/print', [\App\Http\Controllers\RequirementController::class, 'print'])
+        ->name('requirements.print');
+
+    Route::post('/requirements/{requirement}/comments', [\App\Http\Controllers\RequirementCommentController::class, 'store'])
+        ->name('requirements.comments.store');
+
 
     Route::get('/activities', [ActivityController::class, 'index'])
         ->name('activities.index');
@@ -44,6 +66,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
     Route::get('/reports/export', [ReportController::class, 'export'])->name('reports.export');
     Route::get('/reports/print', [ReportController::class, 'print'])->name('reports.print');
+    Route::get('/archives', [ArchiveController::class, 'index'])->name('archives.index');
+    Route::get('/archives/{weeklyReport}/print', [ArchiveController::class, 'print'])->name('archives.print');
+    Route::get('/archives/print-range', [ArchiveController::class, 'printRange'])->name('archives.printRange');
     Route::get('/sheets', [SheetController::class, 'show'])->name('sheets.show');
 
     Route::middleware('ensureAdmin')->group(function () {
@@ -77,5 +102,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__ . '/auth.php';
