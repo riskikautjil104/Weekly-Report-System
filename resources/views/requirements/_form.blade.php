@@ -45,31 +45,37 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
+            <p>Nomor Request (opsional)</p>
             <x-input-label value="Nomor Request (opsional)" />
             <input name="request_number" value="{{ $val('request_number') }}" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary" />
         </div>
 
         <div>
+            <p>Tanggal Request</p>
             <x-input-label value="Tanggal Request" />
             <input type="date" name="request_date" value="{{ old('request_date', optional($r?->request_date)->format('Y-m-d')) }}" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary" />
         </div>
 
         <div>
+            <p>Nama Unit/Bagian</p>
             <x-input-label value="Nama Unit/Bagian" />
             <input name="department" value="{{ $val('department') }}" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary" />
         </div>
 
         <div>
+            <p>Nama Pengusul</p>
             <x-input-label value="Nama Pengusul" />
             <input value="{{ auth()->user()?->name }}" disabled class="mt-2 w-full cursor-not-allowed rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none" />
         </div>
 
         <div>
+            <p>Jabatan</p>
             <x-input-label value="Jabatan" />
             <input name="requester_title" value="{{ $val('requester_title') }}" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary" />
         </div>
 
         <div>
+            <p>Nomor Kontrak</p>
             <x-input-label value="Nomor Kontak" />
             <input name="contact_number" value="{{ $val('contact_number') }}" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary" />
         </div>
@@ -91,12 +97,14 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
+            <p>Nama Fitur</p>
             <x-input-label value="Nama Fitur" />
             <input name="title" value="{{ $val('title') }}" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary" required />
             @error('title')<div class="text-red-600 text-sm mt-1">{{ $message }}</div>@enderror
         </div>
 
         <div>
+            <p>Kategori (internal)</p>
             <x-input-label value="Kategori (internal)" />
             <select name="category" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary" required>
                 <option value="">-- Pilih --</option>
@@ -148,16 +156,19 @@
 
     <div class="grid grid-cols-1 gap-6">
         <div>
+            <p>Alur yang diigninkan</p>
             <x-input-label value="Alur yang diinginkan" />
             <textarea name="expected_workflow" rows="5" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $val('expected_workflow') }}</textarea>
         </div>
 
         <div>
+            <p>Tujuan Bisnis Opsional</p>
             <x-input-label value="Tujuan Bisnis (opsional)" />
             <textarea name="business_goal" rows="3" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $val('business_goal') }}</textarea>
         </div>
 
         <div>
+            <p>Manfaat yang Diharapkan (opsional)</p>
             <x-input-label value="Manfaat yang Diharapkan (opsional)" />
             <textarea name="expected_benefits" rows="3" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $val('expected_benefits') }}</textarea>
         </div>
@@ -184,6 +195,7 @@
     </div>
 
     <div class="mt-4">
+        <p>Keterangan</p>
         <x-input-label value="Keterangan" />
         <textarea name="affected_menu_keterangan" rows="2" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $affectedMenuNote }}</textarea>
     </div>
@@ -227,6 +239,7 @@
     </div>
 
     <div class="mt-4">
+        <p>Keterangan</p>
         <x-input-label value="Keterangan" />
         <textarea name="impact_analysis_keterangan" rows="3" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $dataImpactNote }}</textarea>
     </div>
@@ -250,6 +263,7 @@
     <textarea name="business_rules" rows="5" class="w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $val('business_rules') }}</textarea>
 
     <div class="mt-4">
+        <p>Validasi Tambahan (opsional)</p>
         <x-input-label value="Validasi Tambahan (opsional)" />
         <textarea name="validation_rules" rows="3" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $val('validation_rules') }}</textarea>
     </div>
@@ -275,6 +289,7 @@
     </div>
 
     <div class="mt-4">
+        <p>Keterangan</p>
         <x-input-label value="Keterangan" />
         <textarea name="uiux_notes_keterangan" rows="3" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $lampiranNote }}</textarea>
     </div>
@@ -300,6 +315,7 @@
     </div>
 
     <div class="mt-4">
+        <p>Catatan</p>
         <x-input-label value="Catatan" />
         <textarea name="potential_risk_keterangan" rows="3" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $risikoNote }}</textarea>
     </div>
@@ -322,7 +338,7 @@
             </label>
         @endforeach
     </div>
-
+<p>Alasan</p>
     <x-input-label value="Alasan" />
     <textarea name="priority_reason" rows="3" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">{{ $val('priority_reason') }}</textarea>
 </div>

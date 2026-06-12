@@ -18,7 +18,8 @@
 
         {{-- Diskusi / Komentar (boleh diisi semua user) --}}
         <div class="mt-6 rounded-2xl border border-outline-variant bg-white p-6">
-            <h2 class="text-lg font-bold mb-3">Diskusi / Catatan Tambahan</h2>
+            <h2 class="text-lg font-bold mb-3" style="color: black">Diskusi / Catatan Tambahan</h2>
+            <p>Tulis Komentas (opsional)</p>
             <x-input-label value="Tulis komentar (opsional)" />
             <textarea name="comment" rows="3" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary"></textarea>
         </div>
@@ -26,6 +27,7 @@
         @if($isAdmin)
             <div class="mt-6 rounded-2xl border border-outline-variant bg-white p-6">
                 <h2 class="text-lg font-bold mb-4">Status (Admin)</h2>
+                <p>status</p>
                 <x-input-label value="Status" />
                 <select name="status" class="mt-2 w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm outline-none focus:border-primary">
                     @foreach($statuses as $s)
