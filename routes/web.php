@@ -70,17 +70,22 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/archives/{weeklyReport}/print', [ArchiveController::class, 'print'])->name('archives.print');
     Route::get('/archives/print-range', [ArchiveController::class, 'printRange'])->name('archives.printRange');
     Route::get('/sheets', [SheetController::class, 'show'])->name('sheets.show');
-
-    Route::middleware('ensureAdmin')->group(function () {
-        Route::get('/dashboard/admin', [AdminDashboardController::class, 'index'])
-            ->name('dashboard.admin');
-
-        Route::get('/reports/system', [ReportController::class, 'system'])
+     Route::get('/reports/system', [ReportController::class, 'system'])
             ->name('reports.system');
         Route::get('/reports/system/print', [ReportController::class, 'systemPrint'])
             ->name('reports.system.print');
         Route::get('/reports/system/export', [ReportController::class, 'systemExport'])
             ->name('reports.system.export');
+    Route::middleware('ensureAdmin')->group(function () {
+        Route::get('/dashboard/admin', [AdminDashboardController::class, 'index'])
+            ->name('dashboard.admin');
+
+        // Route::get('/reports/system', [ReportController::class, 'system'])
+        //     ->name('reports.system');
+        // Route::get('/reports/system/print', [ReportController::class, 'systemPrint'])
+        //     ->name('reports.system.print');
+        // Route::get('/reports/system/export', [ReportController::class, 'systemExport'])
+        //     ->name('reports.system.export');
 
         Route::get('/admin/sheets', [MonthlySheetController::class, 'index'])
             ->name('admin.sheets.index');

@@ -21,6 +21,7 @@
                         'items' => [
                             ['route' => 'dashboard', 'label' => 'Dashboard', 'icon' => 'dashboard'],
                             ['route' => 'activities.create', 'label' => 'Activity Input', 'icon' => 'edit_note'],
+                             ['route' => 'reports.system', 'label' => 'System Reports', 'icon' => 'analytics'],
                             ['route' => 'reports.index', 'label' => 'My Reports', 'icon' => 'description'],
                             ['route' => 'archives.index', 'label' => 'Arsip', 'icon' => 'inventory_2'],
                             ['route' => 'sheets.show', 'label' => 'Sheets', 'icon' => 'table_view'],
@@ -38,7 +39,7 @@
                         'items' => [
                             ['route' => 'dashboard.admin', 'label' => 'Admin Dashboard', 'icon' => 'admin_panel_settings'],
                             ['route' => 'admin.users.index', 'label' => 'User Management', 'icon' => 'group'],
-                            ['route' => 'reports.system', 'label' => 'System Reports', 'icon' => 'analytics'],
+                            // ['route' => 'reports.system', 'label' => 'System Reports', 'icon' => 'analytics'],
                             ['route' => 'admin.sheets.index', 'label' => 'Sheet Manager', 'icon' => 'dataset'],
                             ['route' => 'archives.index', 'label' => 'Archive', 'icon' => 'inventory_2'],
                         ],
