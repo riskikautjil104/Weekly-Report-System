@@ -40,6 +40,7 @@ return [
         'api_key' => env('WAHA_API_KEY'),
         'session' => env('WAHA_SESSION', 'default'),
         'timeout' => env('WAHA_TIMEOUT', 10),
+        'default_chat' => env('WAHA_DEFAULT_CHAT'),
     ],
 
     'google_sheet' => [

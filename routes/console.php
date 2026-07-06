@@ -13,7 +13,7 @@ Artisan::command('weekly-report:daily-reminder {--dry-run : Show recipients with
     $users = User::query()
         ->whereNotNull('whatsapp_number')
         ->where('whatsapp_number', '!=', '')
-        ->whereDoesntHave('dailyActivities', fn ($query) => $query->whereDate('tanggal', $today))
+        ->whereDoesntHave('dailyActivities', fn($query) => $query->whereDate('tanggal', $today))
         ->orderBy('name')
         ->get();
 
@@ -21,7 +21,7 @@ Artisan::command('weekly-report:daily-reminder {--dry-run : Show recipients with
 
     if ($this->option('dry-run')) {
         $this->info("Daily reminder {$today}: {$users->count()} user target.");
-        $users->each(fn (User $user) => $this->line("- {$user->name} ({$user->whatsapp_number})"));
+        $users->each(fn(User $user) => $this->line("- {$user->name} ({$user->whatsapp_number})"));
 
         return;
     }
@@ -53,7 +53,7 @@ Artisan::command('weekly-report:weekly-reminder {--dry-run : Show recipients wit
 
     if ($this->option('dry-run')) {
         $this->info("Weekly reminder: {$users->count()} user target.");
-        $users->each(fn (User $user) => $this->line("- {$user->name} ({$user->whatsapp_number})"));
+        $users->each(fn(User $user) => $this->line("- {$user->name} ({$user->whatsapp_number})"));
 
         return;
     }
@@ -88,3 +88,4 @@ Artisan::command('inspire', function () {
 Schedule::command('weekly-report:daily-reminder')->dailyAt('16:00');
 Schedule::command('weekly-report:weekly-reminder')->fridays()->at('16:00');
 Schedule::command('weekly-report:archive')->dailyAt('23:55');
+Schedule::command('reminders:send-weekly-plans')->everyMinute()->timezone('Asia/Jayapura');

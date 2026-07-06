@@ -11,6 +11,7 @@ use App\Http\Controllers\SheetController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RequirementCommentController;
+use App\Http\Controllers\Admin\WeeklyPlanController;
 
 
 
@@ -70,12 +71,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/archives/{weeklyReport}/print', [ArchiveController::class, 'print'])->name('archives.print');
     Route::get('/archives/print-range', [ArchiveController::class, 'printRange'])->name('archives.printRange');
     Route::get('/sheets', [SheetController::class, 'show'])->name('sheets.show');
-     Route::get('/reports/system', [ReportController::class, 'system'])
-            ->name('reports.system');
-        Route::get('/reports/system/print', [ReportController::class, 'systemPrint'])
-            ->name('reports.system.print');
-        Route::get('/reports/system/export', [ReportController::class, 'systemExport'])
-            ->name('reports.system.export');
+    Route::get('/reports/system', [ReportController::class, 'system'])
+        ->name('reports.system');
+    Route::get('/reports/system/print', [ReportController::class, 'systemPrint'])
+        ->name('reports.system.print');
+    Route::get('/reports/system/export', [ReportController::class, 'systemExport'])
+        ->name('reports.system.export');
     Route::middleware('ensureAdmin')->group(function () {
         Route::get('/dashboard/admin', [AdminDashboardController::class, 'index'])
             ->name('dashboard.admin');
@@ -98,6 +99,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::resource('/admin/users', UserManagementController::class)
             ->names('admin.users')
+            ->except('show');
+
+        // Admin weekly plans (per-week planning input)
+        Route::resource('/admin/weekly-plans', WeeklyPlanController::class)
+            ->names('admin.weekly-plans')
             ->except('show');
     });
 });

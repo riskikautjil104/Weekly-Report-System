@@ -1,35 +1,31 @@
-# TODO - Weekly Report System (UI sesuai template_desain)
+# TODO (Requirements Feature)
 
-## Tahap 1: Stabilitas
-- [x] Migrasi DB (daily_activities, weekly_reports, dll) sudah jalan
-- [x] Fix route yang dipanggil sidebar (hindari 500)
-- [x] `php artisan test` sukses (25 passed)
+- [ ] Step 1: Create migrations for `requirements` and `requirement_comments` tables.
+- [ ] Step 2: Add Eloquent models: `Requirement`, `RequirementComment` (+ relationships).
+- [ ] Step 3: Implement controllers:
+  - [ ] `RequirementController` (index, create/store, show, status update by admin, print/PDF endpoint)
+  - [ ] `RequirementCommentController` (store comment; allow both roles)
+- [ ] Step 4: Add routes in `routes/web.php` (user & admin capabilities + print route).
+- [ ] Step 5: Create Blade views:
+  - [ ] `requirements/index.blade.php`
+  - [ ] `requirements/create.blade.php`
+  - [ ] `requirements/show.blade.php` (includes comment thread + comment form)
+  - [ ] `requirements/print.blade.php` (print-friendly view)
+- [ ] Step 6: Update navigation/sidebar so both admin & user can access the new feature.
+- [ ] Step 7: Add feature tests (commenting + access control + print route).
+- [x] Step 1: Create migrations for `requirements` and `requirement_comments` tables.
+- [x] Step 2: Add Eloquent models: `Requirement`, `RequirementComment` (+ relationships).
+- [x] Step 3: Implement controllers:
+  - [x] `RequirementController` (index, create/store, show, admin status update, print/PDF endpoint)
+  - [x] `RequirementCommentController` (store comment; allow both roles)
+- [x] Step 4: Add routes in `routes/web.php` (user & admin capabilities + print route).
+- [x] Step 5: Create Blade views:
+  - [x] `requirements/index.blade.php`
+  - [x] `requirements/create.blade.php`
+  - [x] `requirements/show.blade.php` (includes comment thread + comment form)
+  - [x] `requirements/print.blade.php` (print-friendly view; browser print-to-PDF)
+- [x] Step 6: Update navigation/sidebar so both admin & user can access the new feature.
+- [ ] Step 7: Add feature tests (commenting + access control + print route).
+- [x] Step 8: Run migrations and test locally.
 
-## Tahap 2: UI Alignment dengan template_desain
-- [x] Ubah `resources/views/dashboard/user.blade.php` mengikuti layout template:
-  - CTA “Input Activity Today”
-  - 4 kartu summary (Total/Selesai/Progress/Kendala)
-  - tabel “Recent Daily Activity”
-  - kartu “Weekly Report Preview/Generation” (jika belum ada di view saat ini)
-  - “Report Progress” snapshot/badge (jika ada/atau dibuat sesuai data)
-- [x] Ubah `resources/views/activities/create.blade.php` mengikuti template:
-  - heading + draft auto-saved pill
-  - form layout + styling
-  - draft table section (jika perlu di-render dari drafts yang ada)
-- [x] Ubah `resources/views/reports/system.blade.php` mengikuti template:
-  - filter bar + export buttons (UI)
-  - 4 kartu summary
-  - table “System Status Table”
-- [x] Ubah `resources/views/admin/users/index.blade.php` mengikuti template:
-  - search/filters UI (UI)
-  - table columns + status badges
-
-## Tahap 3: Validasi
-- [ ] Jalankan `php artisan view:clear`
-- [ ] Jalankan `php artisan test`
-- [ ] Cek rendering manual untuk route:
-  - `/dashboard/user`
-  - `/activities/create`
-  - `/reports/system`
-  - `/admin/users`
 

@@ -27,6 +27,36 @@ Laravel 13 scaffold for the Weekly Report System, built from the docs in `claude
 php artisan serve
 ```
 
+## Waha WhatsApp API setup
+
+This project includes a local Waha WhatsApp API service via Docker.
+
+1. Copy the Waha Docker env file and fill credentials:
+
+```bash
+cp docker/waha.env.example docker/waha.env
+```
+
+2. Start only the Waha service:
+
+```bash
+docker compose up -d waha
+```
+
+3. Set your app `.env` values:
+
+```dotenv
+WAHA_BASE_URL=http://localhost:3000
+WAHA_API_KEY=your-waha-api-key
+WAHA_SESSION=default
+WAHA_TIMEOUT=10
+WAHA_DEFAULT_CHAT=6281234567890@g.us
+```
+
+4. Open Waha dashboard in your browser if needed and connect your WhatsApp session.
+
+5. In the admin weekly plan form, enable "Kirim ke WhatsApp" and optionally provide a chat id.
+
 ## Check it
 
 ```bash

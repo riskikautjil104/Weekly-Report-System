@@ -40,6 +40,7 @@
                             ['route' => 'dashboard.admin', 'label' => 'Admin Dashboard', 'icon' => 'admin_panel_settings'],
                             ['route' => 'admin.users.index', 'label' => 'User Management', 'icon' => 'group'],
                             // ['route' => 'reports.system', 'label' => 'System Reports', 'icon' => 'analytics'],
+                            ['route' => 'admin.weekly-plans.index', 'label' => 'Weekly Plans', 'icon' => 'calendar_month'],
                             ['route' => 'admin.sheets.index', 'label' => 'Sheet Manager', 'icon' => 'dataset'],
                             ['route' => 'archives.index', 'label' => 'Archive', 'icon' => 'inventory_2'],
                         ],
