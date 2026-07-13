@@ -36,4 +36,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(DailyActivity::class);
     }
+
+    public function overtimeRequests(): HasMany
+    {
+        return $this->hasMany(OvertimeRequest::class);
+    }
 }

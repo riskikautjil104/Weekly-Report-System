@@ -26,6 +26,7 @@
                             ['route' => 'archives.index', 'label' => 'Arsip', 'icon' => 'inventory_2'],
                             ['route' => 'sheets.show', 'label' => 'Sheets', 'icon' => 'table_view'],
                             ['route' => 'requirements.index', 'label' => 'Requirement Gathering', 'icon' => 'fact_check'],
+                            ['route' => 'overtime.index', 'routePattern' => 'overtime.*', 'label' => 'Lembur', 'icon' => 'schedule'],
                         ],
                     ],
                 ];
@@ -42,6 +43,7 @@
                             // ['route' => 'reports.system', 'label' => 'System Reports', 'icon' => 'analytics'],
                             ['route' => 'admin.weekly-plans.index', 'label' => 'Weekly Plans', 'icon' => 'calendar_month'],
                             ['route' => 'admin.sheets.index', 'label' => 'Sheet Manager', 'icon' => 'dataset'],
+                            ['route' => 'admin.overtime.index', 'routePattern' => 'admin.overtime.*', 'label' => 'Approval Lembur', 'icon' => 'fact_check'],
                             ['route' => 'archives.index', 'label' => 'Archive', 'icon' => 'inventory_2'],
                         ],
                     ];
@@ -57,7 +59,7 @@
                 @endif
 
                 @foreach ($section['items'] as $item)
-                    @php($active = request()->routeIs($item['route']))
+                    @php($active = isset($item['routePattern']) ? request()->routeIs($item['routePattern']) : request()->routeIs($item['route']))
                     <a href="{{ route($item['route']) }}" class="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition {{ $active ? 'bg-secondary-container text-primary shadow-sm' : 'text-secondary hover:bg-surface-container-high' }}">
                         <span class="material-symbols-outlined {{ $active ? 'fill-1' : '' }}">{{ $item['icon'] }}</span>
                         <span>{{ $item['label'] }}</span>

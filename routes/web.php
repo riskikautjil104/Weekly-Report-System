@@ -4,8 +4,10 @@ use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\MonthlySheetController;
+use App\Http\Controllers\Admin\OvertimeApprovalController;
 use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OvertimeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SheetController;
 use App\Http\Controllers\ReportController;
@@ -77,6 +79,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('reports.system.print');
     Route::get('/reports/system/export', [ReportController::class, 'systemExport'])
         ->name('reports.system.export');
+
+    Route::get('/overtime', [OvertimeController::class, 'index'])->name('overtime.index');
+    Route::get('/overtime/create', [OvertimeController::class, 'create'])->name('overtime.create');
+    Route::post('/overtime', [OvertimeController::class, 'store'])->name('overtime.store');
+    Route::get('/overtime/{overtimeRequest}', [OvertimeController::class, 'show'])->name('overtime.show');
+
     Route::middleware('ensureAdmin')->group(function () {
         Route::get('/dashboard/admin', [AdminDashboardController::class, 'index'])
             ->name('dashboard.admin');
@@ -105,6 +113,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('/admin/weekly-plans', WeeklyPlanController::class)
             ->names('admin.weekly-plans')
             ->except('show');
+
+        Route::get('/admin/overtime', [OvertimeApprovalController::class, 'index'])->name('admin.overtime.index');
+        Route::get('/admin/overtime/export', [OvertimeApprovalController::class, 'export'])->name('admin.overtime.export');
+        Route::get('/admin/overtime/print', [OvertimeApprovalController::class, 'print'])->name('admin.overtime.print');
+        Route::get('/admin/overtime/{overtimeRequest}', [OvertimeApprovalController::class, 'show'])->name('admin.overtime.show');
+        Route::patch('/admin/overtime/{overtimeRequest}/approve', [OvertimeApprovalController::class, 'approve'])->name('admin.overtime.approve');
+        Route::patch('/admin/overtime/{overtimeRequest}/reject', [OvertimeApprovalController::class, 'reject'])->name('admin.overtime.reject');
     });
 });
 
