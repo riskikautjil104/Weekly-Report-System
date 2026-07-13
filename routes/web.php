@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\ArchiveController;
+use App\Http\Controllers\Admin\AnalyticsController as AdminAnalyticsController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\MonthlySheetController;
 use App\Http\Controllers\Admin\OvertimeApprovalController;
@@ -85,6 +87,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/overtime', [OvertimeController::class, 'store'])->name('overtime.store');
     Route::get('/overtime/{overtimeRequest}', [OvertimeController::class, 'show'])->name('overtime.show');
 
+    Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
+
     Route::middleware('ensureAdmin')->group(function () {
         Route::get('/dashboard/admin', [AdminDashboardController::class, 'index'])
             ->name('dashboard.admin');
@@ -120,6 +124,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/admin/overtime/{overtimeRequest}', [OvertimeApprovalController::class, 'show'])->name('admin.overtime.show');
         Route::patch('/admin/overtime/{overtimeRequest}/approve', [OvertimeApprovalController::class, 'approve'])->name('admin.overtime.approve');
         Route::patch('/admin/overtime/{overtimeRequest}/reject', [OvertimeApprovalController::class, 'reject'])->name('admin.overtime.reject');
+
+        Route::get('/admin/analytics', [AdminAnalyticsController::class, 'index'])->name('admin.analytics.index');
+        Route::get('/admin/analytics/export', [AdminAnalyticsController::class, 'export'])->name('admin.analytics.export');
+        Route::get('/admin/analytics/print', [AdminAnalyticsController::class, 'print'])->name('admin.analytics.print');
     });
 });
 

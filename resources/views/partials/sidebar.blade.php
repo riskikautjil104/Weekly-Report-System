@@ -27,6 +27,7 @@
                             ['route' => 'sheets.show', 'label' => 'Sheets', 'icon' => 'table_view'],
                             ['route' => 'requirements.index', 'label' => 'Requirement Gathering', 'icon' => 'fact_check'],
                             ['route' => 'overtime.index', 'routePattern' => 'overtime.*', 'label' => 'Lembur', 'icon' => 'schedule'],
+                            ['route' => 'analytics.index', 'routePattern' => 'analytics.*', 'label' => 'Analisis', 'icon' => 'analytics'],
                         ],
                     ],
                 ];
@@ -44,6 +45,7 @@
                             ['route' => 'admin.weekly-plans.index', 'label' => 'Weekly Plans', 'icon' => 'calendar_month'],
                             ['route' => 'admin.sheets.index', 'label' => 'Sheet Manager', 'icon' => 'dataset'],
                             ['route' => 'admin.overtime.index', 'routePattern' => 'admin.overtime.*', 'label' => 'Approval Lembur', 'icon' => 'fact_check'],
+                            ['route' => 'admin.analytics.index', 'routePattern' => 'admin.analytics.*', 'label' => 'Analisis Tim', 'icon' => 'insights'],
                             ['route' => 'archives.index', 'label' => 'Archive', 'icon' => 'inventory_2'],
                         ],
                     ];
